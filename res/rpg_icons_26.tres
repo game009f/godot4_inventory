@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dx5t7wkhifjbx"]
+
+[ext_resource type="Texture2D" uid="uid://blkiy680xmfv7" path="res://swords/rpg_icons_42.png" id="1_x4l6a"]
+[ext_resource type="Script" path="res://data/item.gd" id="2_5ymhs"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_5ymhs")
+name = "rpg_icons_26"
+ico = ExtResource("1_x4l6a")
+amount = 0

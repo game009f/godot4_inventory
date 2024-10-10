@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmyorj6ulgqd3"]
+
+[ext_resource type="Script" path="res://scn/背包.gd" id="1_envkf"]
+[ext_resource type="PackedScene" uid="uid://cnsvpdpyuk0sa" path="res://node/solt.tscn" id="1_x6g5v"]
+
+[node name="背包" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_envkf")
+
+[node name="Container" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -134.0
+offset_right = 134.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+columns = 4
+
+[node name="Solt" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt2" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt3" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt4" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt5" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt6" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt7" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt8" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt9" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt10" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt11" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt12" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt13" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt14" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt15" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="Solt16" parent="Container" instance=ExtResource("1_x6g5v")]
+layout_mode = 2
+
+[node name="ItemLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
