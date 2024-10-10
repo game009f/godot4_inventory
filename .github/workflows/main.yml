@@ -1,0 +1,47 @@
+name: CI
+
+#控制工作流何时运行
+on:
+  #触发推送或拉取请求事件的工作流，但仅限于“主”分支
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+#允许您从“操作”选项卡手动运行此工作流
+  workflow_dispatch:
+  
+jobs:
+  # 作业ID，可自定义
+  export_game:
+    # 对于此动作始终使用ubuntu-latest
+    runs-on: ubuntu-latest
+    # 添加创建发布的权限。可以根据需要进一步细化
+    permissions: write-all
+    # 作业名，可自定义
+    name: 导出游戏
+    steps:
+      # 始终包含检出步骤，以便Godot可用以导出项目
+    - name: 检出
+      uses: actions/checkout@v3.3.0
+  
+    - name: 导出游戏
+      id: export
+      # 使用最新版本（查看所有版本的发布）
+      uses: firebelley/godot-export@v5.2.0
+      with:
+        # 定义所有必需的输入
+        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
+        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
+        relative_project_path: ./
+        archive_output: true
+
+      # 这个发布操作对我来说效果不错。但是，你可以选择任何你喜欢的发布操作。
+      # https://github.com/ncipollo/release-action
+    - name: 创建发布
+      uses: ncipollo/release-action@v1.12.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        generateReleaseNotes: true
+        tag: ${{ github.ref_name }}
+        artifacts: ${{ steps.export.outputs.archive_directory }}/*
